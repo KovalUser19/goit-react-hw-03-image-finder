@@ -1,7 +1,6 @@
 import css from './Searchbar.module.css'
 import { Component } from "react";
 
- import{ReactComponent as IconSearch} from 'icon.svg'
 export class Searchbar extends Component{
   state = {
      query:'',
@@ -20,8 +19,17 @@ export class Searchbar extends Component{
       <header className={css.searchbar}>
         <form className={css.SearchForm} onSubmit={this.handleSubmit}>
           <button type="submit" className={css.SearchForm_button}>
-           {/*  <span className="button-label"></span> */}
-            <IconSearch/>
+            <svg className="svg-icon search-icon" aria-labelledby="title desc" role="img"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7">
+    <title id="title">Search Icon</title>
+    <desc id="desc">A magnifying glass icon.</desc>
+    <g className="search-path" fill="none" stroke="#848F91">
+        <path stroke_linecap="square" d="M18.5 18.3l-5.4-5.4"/>
+        <circle cx="8" cy="8" r="7"/>
+    </g>
+</svg>
+
+
           </button>
           <input
             className={css.SearchForm_input}

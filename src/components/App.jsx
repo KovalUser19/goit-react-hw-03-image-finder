@@ -1,13 +1,11 @@
 import { Component } from "react"
 import { getAllPhotos } from "api/gallery";
 import { ImageGallery } from "./ImageGallery/ImageGallery";
-
 import { Searchbar } from "./Searchbar/Searchbar";
-
 import { Loader } from "./Loader/Loader";
 import { Button } from "./Button/Button";
 import css from './App.module.css'
-
+import cSs from './Button/ButtonWrapper.module.css'
 
 export class App extends Component{
   state={
@@ -60,14 +58,14 @@ export class App extends Component{
     const {loadMore, loading, hits}=this.state
     return (
       <div className={css.App} >
-        <Searchbar onSubmit={this.handleFormSubmit}></Searchbar>
-        {loading && <Loader></Loader>}
-        <ImageGallery hits={hits}>
-        </ImageGallery>
-
-        {loadMore && <Button click={this.handleLoadMore}></Button>}
+         <Searchbar onSubmit={this.handleFormSubmit}></Searchbar>
+         {loading && <Loader></Loader>}
+         <ImageGallery hits={hits}>
+         </ImageGallery>
+          <div className={cSs.buttonWrraper}>
+             {loadMore && <Button click={this.handleLoadMore}></Button>}
+          </div>
     </div>
   );
   }
-
 };
