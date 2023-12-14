@@ -18,7 +18,9 @@ export class App extends Component{
     totalHits:0,
   }
   handleFormSubmit = query => {
-      this.setState({ query })
+    if (this.state.query !== query) {
+    this.setState({ hits: [],loadMore:false, page:1, query:query})
+  }
   }
 
   handleLoadMore = () => {
@@ -26,9 +28,6 @@ export class App extends Component{
   }
 
   async componentDidUpdate(_, prevState) {
-  if (this.state.query !== prevState.query) {
-    this.setState({ hits: [],loadMore:false })
-  }
    if (this.state.page !== prevState.page  || this.state.query !== prevState.query) {
     await this.getPhotos()
  }
