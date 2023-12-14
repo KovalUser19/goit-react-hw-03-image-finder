@@ -34,6 +34,7 @@ export class App extends Component{
   }
 
   getPhotos = async () => {
+
     try {
       this.setState({ loading: true })
       const response = await getAllPhotos(this.state.query, this.state.page)
@@ -45,9 +46,11 @@ export class App extends Component{
         loadMore: this.state.page < Math.ceil(response.totalHits / 12 )
       })))
     }
+
     catch (error) {
       console.log(error);
     }
+
     finally {
       this.setState({ loading: false })
      }
